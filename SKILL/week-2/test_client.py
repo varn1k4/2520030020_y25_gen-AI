@@ -1,7 +1,5 @@
-
 import unittest
 from llm_client import LLMClient
-
 
 # Fake provider for testing
 class FakeProvider:
@@ -9,14 +7,11 @@ class FakeProvider:
     def generate(self, prompt):
         return "AI stands for Artificial Intelligence."
 
-
-# Test common client
 class TestLLMClient(unittest.TestCase):
 
     def test_generate(self):
 
         provider = FakeProvider()
-
         client = LLMClient(provider)
 
         result = client.generate("Explain AI")
@@ -25,7 +20,6 @@ class TestLLMClient(unittest.TestCase):
             result,
             "AI stands for Artificial Intelligence."
         )
-
 
 if __name__ == "__main__":
     unittest.main()

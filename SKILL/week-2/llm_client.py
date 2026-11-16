@@ -1,17 +1,12 @@
-
 from abc import ABC, abstractmethod
 from google import genai
 import requests
 
-
 # Common interface
 class LLMProvider(ABC):
-
     @abstractmethod
     def generate(self, prompt):
-        pass
-
-
+        pass #pass is a placeholder. It indicates that we are not providing an implementation here.
 # Gemini cloud provider
 class GeminiProvider(LLMProvider):
 
@@ -23,9 +18,7 @@ class GeminiProvider(LLMProvider):
             model="gemini-3.8-flash",
             contents=prompt
         )
-
         return response.text
-
 
 # Ollama local provider
 class OllamaProvider(LLMProvider):
@@ -46,9 +39,7 @@ class OllamaProvider(LLMProvider):
         )
 
         response.raise_for_status()
-
         return response.json()["response"]
-
 
 # Common client
 class LLMClient:

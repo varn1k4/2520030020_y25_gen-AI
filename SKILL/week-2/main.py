@@ -1,4 +1,3 @@
-
 import os
 from dotenv import load_dotenv
 
@@ -8,10 +7,8 @@ from llm_client import (
     LLMClient
 )
 
-# Load API key from .env
 load_dotenv(override=True)
 
-# Select AI provider
 provider_name = input(
     "Choose provider (gemini/ollama): "
 ).strip().lower()
@@ -32,13 +29,10 @@ elif provider_name == "ollama":
 else:
     raise ValueError("Invalid provider selected")
 
-# Create common client
 client = LLMClient(provider)
 
-# Get question
 prompt = input("Enter your question: ")
 
-# Generate answer
 answer = client.generate(prompt)
 
 print("\nLLM Response:")
